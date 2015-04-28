@@ -11,14 +11,7 @@ class Ability
        else
          can :read, :all
        end
-       if user.nil?
-          can :read, :all
-       elsif user.admin?
-           can :manage, :all
-       else
-           can :read, :all
-           can [:update, :destroy], user, :id => user.id
-       end
+  
  end
     #
     # The first argument to `can` is the action you are giving the user 
@@ -38,5 +31,5 @@ class Ability
     #
     # See the wiki for details:
     # https://github.com/ryanb/cancan/wiki/Defining-Abilities
-  end
+
 end
