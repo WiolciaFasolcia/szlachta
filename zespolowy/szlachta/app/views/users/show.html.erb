@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+<p>
+  <strong>Admin:</strong>
+  <%= @user.admin? %>
+</p>
+
+
+<%= link_to 'Edytuj', edit_user_path(@user), class: "button radius" %> |
+<%= link_to 'Cofnij', users_path, class: "button radius" %>

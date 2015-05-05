@@ -29,7 +29,7 @@ class UsersController < BaseController
  params[:user].delete(:password_confirmation) if params[:user][:password].blank? and params[:user][:password_confirmation].blank?
  if @user.update_attributes(params[:user])
  flash[:notice] = "Successfully updated User."
- redirect_to root_path
+ redirect_to users_path
  else
  render :action => 'edit'
  end
@@ -39,13 +39,13 @@ class UsersController < BaseController
  @user = User.find(params[:id])
  if @user.destroy
  flash[:notice] = "Successfully deleted User."
- redirect_to root_path
+ redirect_to users_path
  end
  end
 
  protected
 
  def user_params
- params.require(:user).permit(:name, :surname, :email, :password, :password_confirmation, :commit)
+ params.require(:user).permit( :email, :password, :password_confirmation, :commit)
  end
 end 
