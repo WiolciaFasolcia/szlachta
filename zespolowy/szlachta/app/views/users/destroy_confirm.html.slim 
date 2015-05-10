@@ -1,0 +1,10 @@
+h1.page-header Usuwanie konta
+
+-if @user.admin?
+	p Aby potwierdzić, wpisz swoje hasło:
+-else
+	p Aby potwierdzić, wpisz swoje hasło:
+-if params[:id].present?
+ =render partial: '/users/password_confirm', locals: { abc: destroy_user_user_path(params[:id]) }
+-else
+ =render partial:'/users/password_confirm', locals: { abc: destroy_users_path}

@@ -15,7 +15,8 @@
      <tr>
        <td><%= user.email %></td>
        <td><%= user.admin? %></td>
-
+      <td><%= link_to 'Edycja', edit_user_path(user), class: "button radius" %></td>
+        <td><%= link_to 'Usuń', user_path(user), class: "button radius", method: :delete, data: { confirm: 'Czy jestes pewien?' } %></td>
      </tr>
    <% end %>
  </tbody>
@@ -24,5 +25,4 @@
 <% if can? :create, :user %>
  <%= link_to 'Nowy użytkownik', new_user_path, class: "button radius" %>
 <% end %>
-
 <br>

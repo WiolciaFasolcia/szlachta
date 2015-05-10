@@ -1,4 +1,5 @@
-<%= form_for(@user) do |f| %>
+<%= simple_form_for @user do |f| %>
+  <%= f.error_notification %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -11,16 +12,15 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label "administrator" %><br>
-    <%= f.check_box :admin %>
+  
+  <div class="form-inputs">
+    <%= f.input :email, required: true, autofocus: true %>
+    <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @validatable) %>
+    <%= f.input :password_confirmation, required: true %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Wyslij" %>
+  <div class="form-actions">
+    <%= f.button :submit, "Dodaj użytkownika" %>
   </div>
 <% end %>
+
