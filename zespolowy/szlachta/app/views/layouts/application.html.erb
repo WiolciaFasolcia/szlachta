@@ -20,6 +20,9 @@
  			<%= link_to "Wyloguj", destroy_user_session_path, method: :delete, :class => 'navbar-link' %>
  			
  			<%= link_to "Lista użytkowników", users_path, :class => 'navbar-link' %>
+ 			<%= link_to "Lista pracowników", employees_path, :class => 'navbar-link' %>
+ 			<%= link_to "Lista sal", rooms_path, :class => 'navbar-link' %>
+ 			<%= link_to "Lista kluczy", room_keys_path, :class => 'navbar-link' %>
 			<% else %>
  			<%= link_to "Zaloguj", new_user_session_path, :class => 'navbar-link' %>
 		<% end %>

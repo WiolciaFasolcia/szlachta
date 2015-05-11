@@ -1,0 +1,29 @@
+h1 Listing employees
+
+table
+  thead
+    tr
+      th Imie
+      th Nazwisko
+      th Tytul
+      th Telefon
+      th Email
+      th
+      th
+      th
+
+  tbody
+    - @employees.each do |employee|
+      tr
+        td = employee.imie
+        td = employee.nazwisko
+        td = employee.tytul
+        td = employee.telefon
+        td = employee.email
+        td = link_to 'Show', employee
+        td = link_to 'Edit', edit_employee_path(employee)
+        td = link_to 'Destroy', employee, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Employee', new_employee_path

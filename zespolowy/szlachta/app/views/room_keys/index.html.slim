@@ -1,0 +1,23 @@
+h1 Listing room_keys
+
+table
+  thead
+    tr
+      th Klucz
+      th Zapasowy
+      th
+      th
+      th
+
+  tbody
+    - @room_keys.each do |room_key|
+      tr
+        td = room_key.klucz
+        td = room_key.zapasowy
+        td = link_to 'Show', room_key
+        td = link_to 'Edit', edit_room_key_path(room_key)
+        td = link_to 'Destroy', room_key, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Room key', new_room_key_path

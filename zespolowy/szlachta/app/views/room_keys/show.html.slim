@@ -1,0 +1,12 @@
+p#notice = notice
+
+p
+  strong Klucz:
+  = @room_key.klucz
+p
+  strong Zapasowy:
+  = @room_key.zapasowy
+
+= link_to 'Edit', edit_room_key_path(@room_key)
+'|
+= link_to 'Back', room_keys_path
