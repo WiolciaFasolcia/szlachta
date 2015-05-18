@@ -1,4 +1,4 @@
-= form_for @employee do |f|
+= simple_form_for @employee do |f|
   - if @employee.errors.any?
     #error_explanation
       h2 = "#{pluralize(@employee.errors.count, "error")} prohibited this employee from being saved:"
@@ -6,22 +6,15 @@
         - @employee.errors.full_messages.each do |message|
           li = message
 
-  .field
-    = f.label :imie
-    = f.text_field :imie
-  .field
-    = f.label :nazwisko
-    = f.text_field :nazwisko
-  .field
-    = f.label :tytul
-    = f.text_field :tytul
-  .field
-    = f.label :telefon
-    = f.number_field :telefon
-  .field
-    = f.label :email
-    = f.text_field :email
-    .field
-  .actions = f.submit "Potwierdź",  :class => 'btn btn-primary'
-  .field 
-  = link_to 'Cofnij', employees_path , :class => 'btn btn-primary'
+
+
+  .form-inputs
+    = f.input :imie, required: true, autofocus: true 
+    = f.input :nazwisko, required: true, autofocus: true 
+    = f.input :tytul, required: true, autofocus: true 
+    = f.input :telefon, required: true, autofocus: true  
+    = f.input :email, required: true, autofocus: true 
+
+  =f.button :submit, "Potwierdź" , :class => 'btn btn-primary'
+
+  = link_to 'Cofnij', room_keys_path , :class => 'btn btn-primary'

@@ -1,4 +1,4 @@
-= form_for @room do |f|
+= simple_form_for @room do |f|
   - if @room.errors.any?
     #error_explanation
       h2 = "#{pluralize(@room.errors.count, "error")} prohibited this room from being saved:"
@@ -6,11 +6,11 @@
         - @room.errors.full_messages.each do |message|
           li = message
 
-  .field
-    = f.label :nazwa
-    = f.text_field :nazwa
-  .field
-    = f.label :rodzaj
-    = f.text_field :rodzaj
-  .actions = f.submit "Potwierdź",  :class => 'btn btn-primary'
-  = link_to 'Cofnij', rooms_path, :class => 'btn btn-primary'
+  .form-inputs
+    = f.input :nazwa, required: true, autofocus: true 
+    = f.input :rodzaj, required: true, autofocus: true 
+  
+  =f.button :submit, "Potwierdź" , :class => 'btn btn-primary'
+
+  = link_to 'Cofnij', room_keys_path , :class => 'btn btn-primary'
+

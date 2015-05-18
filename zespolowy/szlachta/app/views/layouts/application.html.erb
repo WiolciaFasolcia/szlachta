@@ -19,35 +19,53 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-<div class="container">
 
-	<div class="row" style="background-color:yellow;">
 
-	<p class="navbar-text pull-right">
-		<% if user_signed_in? %>
+<nav class="navbar navbar-default" role="navigation">
+	<div class="container"> 
+
+	 	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+	 		<% if user_signed_in? %>
  
- 		<% if can? :update, current_user %>
- 			 <div class="col-lg-1"><%= link_to "Profil", show_profile_users_path, :class => 'navbar-link' %> </div>
- 			<% end %>
- 			<div class="col-lg-2"><%= link_to "Wyloguj", destroy_user_session_path, method: :delete, :class => 'navbar-link' %></div>
- 			
- 			<div class="col-lg-2"><%= link_to "Lista użytkowników", users_path, :class => 'navbar-link' %></div>
- 			<div class="col-lg-2"><%= link_to "Lista pracowników", employees_path, :class => 'navbar-link' %></div>
- 			<div class="col-lg-2"><%= link_to "Lista sal", rooms_path, :class => 'navbar-link' %></div>
- 			<div class="col-lg-2"><%= link_to "Lista kluczy", room_keys_path, :class => 'navbar-link' %></div>
-			<% else %>
- 			<div class="col-lg-2"><%= link_to "Zaloguj", new_user_session_path, :class => 'navbar-link' %></div>
-		<% end %>
-	</p>
-	</div>
-</div>
-<div class="continer">
-		<div class="row">
-<div class="col-md-6 col-md-offset-2"> <%= yield %></div>
+ 			<% if can? :update, current_user %>
 
+				<ul class="nav navbar-nav">
+					<li><a href="#"><%= link_to "Lista kluczy", room_keys_path, :class => 'navbar-link' %></a></li>
+					<li ><a href="#"></a></li>
+					<li ><a href="#"><%= link_to "Lista sal", rooms_path, :class => 'navbar-link' %></a></li>
+					<li ><a href="#"></a></li>
+					<li ><a href="#"><%= link_to "Lista pracowników", employees_path, :class => 'navbar-link' %></a></li>
+					<li ><a href="#"></a></li>
+					<li ><a href="#"><%= link_to "Lista użytkowników", users_path, :class => 'navbar-link' %></a></li>
+					<li ><a href="#"></a></li>
+				</ul>	
+
+
+
+
+ 				<ul class="nav navbar-nav navbar-right">
+ 				<li><a href="#"><%= link_to "Profil", show_profile_users_path, :class => 'navbar-link' %></a></li>
+				<li><a href="#"><%= link_to "Wyloguj", destroy_user_session_path, method: :delete, :class => 'navbar-link' %></a></li>
+				</ul>
+
+ 			<% end %>
+ 	
+			<% else %>
+				<ul class="nav navbar-nav navbar-right">
+ 				<li><a href="#"><%= link_to "Zaloguj", new_user_session_path, :class => 'navbar-link' %></a></li>
+				</ul>
+			<% end %>
+		</div>
+</div>
+</nav>
+<div class="continer">
+	<div class="row">
+		<div class="col-md-9 col-md-offset-1"><%= yield %></div>
 	</div>
 	
 </div>
+
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->

@@ -22,7 +22,6 @@ table class="table table-striped"
         td = employee.tytul
         td = employee.telefon
         td = employee.email
-        td = link_to 'Pokaż', employee , :class => 'btn btn-primary'
         td = link_to 'Edytuj', edit_employee_path(employee) , :class => 'btn btn-primary'
         td = link_to 'Usuń', employee , :class => 'btn btn-primary', data: {:confirm => 'Are you sure?'}, :method => :delete
 
