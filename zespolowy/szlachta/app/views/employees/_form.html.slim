@@ -21,4 +21,7 @@
   .field
     = f.label :email
     = f.text_field :email
-  .actions = f.submit
+    .field
+  .actions = f.submit "Potwierdź",  :class => 'btn btn-primary'
+  .field 
+  = link_to 'Cofnij', employees_path , :class => 'btn btn-primary'

@@ -1,8 +1,10 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Lista uzytkownikow</h1>
-
-<table>
+<% if can? :create, :user %>
+ <%= link_to 'Dodaj użytkownika', new_user_path, :class => 'btn btn-primary' %>
+<% end %>
+<table class="table table-striped">
    <thead>
      <tr>
        <th>Email</th>
@@ -15,14 +17,12 @@
      <tr>
        <td><%= user.email %></td>
        <td><%= user.admin? %></td>
-      <td><%= link_to 'Edycja', edit_user_path(user), class: "button radius" %></td>
-        <td><%= link_to 'Usuń', user_path(user), class: "button radius", method: :delete, data: { confirm: 'Czy jestes pewien?' } %></td>
+      <td><%= link_to 'Edycja', edit_user_path(user), :class => 'btn btn-primary' %></td>
+        <td><%= link_to 'Usuń', user_path(user), :class => 'btn btn-primary', method: :delete, data: { confirm: 'Czy jestes pewien?' } %></td>
      </tr>
    <% end %>
  </tbody>
 </table>
 
-<% if can? :create, :user %>
- <%= link_to 'Nowy użytkownik', new_user_path, class: "button radius" %>
-<% end %>
+
 <br>

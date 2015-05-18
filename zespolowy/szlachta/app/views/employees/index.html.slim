@@ -1,6 +1,8 @@
-h1 Listing employees
+h1 Lista pracowników
 
-table
+= link_to 'Dodaj pracownika', new_employee_path , :class => 'btn btn-primary'
+
+table class="table table-striped"
   thead
     tr
       th Imie
@@ -20,10 +22,10 @@ table
         td = employee.tytul
         td = employee.telefon
         td = employee.email
-        td = link_to 'Show', employee
-        td = link_to 'Edit', edit_employee_path(employee)
-        td = link_to 'Destroy', employee, data: {:confirm => 'Are you sure?'}, :method => :delete
+        td = link_to 'Pokaż', employee , :class => 'btn btn-primary'
+        td = link_to 'Edytuj', edit_employee_path(employee) , :class => 'btn btn-primary'
+        td = link_to 'Usuń', employee , :class => 'btn btn-primary', data: {:confirm => 'Are you sure?'}, :method => :delete
 
 br
 
-= link_to 'New Employee', new_employee_path
+

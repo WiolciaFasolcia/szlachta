@@ -1,12 +1,15 @@
-p#notice = notice
+.notice
+	h1.page-header Dane sali
+	table#users.table.table-striped
+		thead
+			tr
+				td
+				  	strong Nazwa:
+ 					= @room.nazwa
+				td
+  					strong Rodzaj:
+ 					= @room.rodzaj
 
-p
-  strong Nazwa:
-  = @room.nazwa
-p
-  strong Rodzaj:
-  = @room.rodzaj
+= link_to 'Edytuj', edit_room_path(@room), :class => 'btn btn-primary'
 
-= link_to 'Edit', edit_room_path(@room)
-'|
-= link_to 'Back', rooms_path
+= link_to 'Cofnij', rooms_path, :class => 'btn btn-primary'

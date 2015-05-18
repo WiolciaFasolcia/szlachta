@@ -1,6 +1,6 @@
 h1 Lista Sal
-
-table
+= link_to 'Dodaj salę', new_room_path , :class => 'btn btn-primary'
+table class="table table-striped"
   thead
     tr
       th Nazwa
@@ -14,10 +14,9 @@ table
       tr
         td = room.nazwa
         td = room.rodzaj
-        td = link_to 'Show', room
-        td = link_to 'Edit', edit_room_path(room)
-        td = link_to 'Destroy', room, data: {:confirm => 'Are you sure?'}, :method => :delete
+        td = link_to 'Edytuj', edit_room_path(room) , :class => 'btn btn-primary'
+        td = link_to 'Usuń', room, :class => 'btn btn-primary' , data: {:confirm => 'Are you sure?'}, :method => :delete
 
 br
 
-= link_to 'New Room', new_room_path
+

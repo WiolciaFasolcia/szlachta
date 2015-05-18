@@ -12,4 +12,5 @@
   .field
     = f.label :rodzaj
     = f.text_field :rodzaj
-  .actions = f.submit
+  .actions = f.submit "Potwierdź",  :class => 'btn btn-primary'
+  = link_to 'Cofnij', rooms_path, :class => 'btn btn-primary'

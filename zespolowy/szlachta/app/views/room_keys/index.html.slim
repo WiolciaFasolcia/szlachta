@@ -1,6 +1,6 @@
-h1 Listing room_keys
-
-table
+h1 Lista kluczy
+= link_to 'Dodaj klucz', new_room_key_path, :class => 'btn btn-primary'
+table class="table table-striped"
   thead
     tr
       th Klucz
@@ -14,10 +14,9 @@ table
       tr
         td = room_key.klucz
         td = room_key.zapasowy
-        td = link_to 'Show', room_key
-        td = link_to 'Edit', edit_room_key_path(room_key)
-        td = link_to 'Destroy', room_key, data: {:confirm => 'Are you sure?'}, :method => :delete
+        td = link_to 'Edytuj', edit_room_key_path(room_key), :class => 'btn btn-primary'
+        td = link_to 'Usuń', room_key , :class => 'btn btn-primary', data: {:confirm => 'Are you sure?'}, :method => :delete
 
 br
 
-= link_to 'New Room key', new_room_key_path
+
