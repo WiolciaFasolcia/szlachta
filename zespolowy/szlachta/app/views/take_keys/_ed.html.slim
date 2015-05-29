@@ -1,0 +1,22 @@
+= simple_form_for @take_key do |f|
+  - if @take_key.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@take_key.errors.count, "error")} prohibited this take_key from being saved:"
+      ul
+        - @take_key.errors.full_messages.each do |message|
+          li = message
+
+
+  .form-inputs
+    = f.input :nazwa_sali, as: :select, collection: Room.all.map(&:nazwa)
+    = f.input :rodzaj_klucza, as: :select, collection: Room.all.map(&:nazwa)
+    = f.input :osoba_pobierajaca, as: :select, collection: Employee.pluck(:nazwisko, :imie)
+    = f.input :godzina_pobrania, required: true
+    = f.input :godzina_oddania
+
+
+
+    
+  =f.button :submit, "Potwierdź" , :class => 'btn btn-primary'
+
+  = link_to 'Cofnij', :back, :class => 'btn btn-primary'

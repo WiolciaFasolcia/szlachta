@@ -4,7 +4,9 @@ class RoomsController < BaseController
   # GET /rooms
   # GET /rooms.json
   def index
+    
     @rooms = Room.all
+    
   end
   # GET /rooms/1
   # GET /rooms/1.json
@@ -27,7 +29,7 @@ class RoomsController < BaseController
 
     respond_to do |format|
       if @room.save
-        format.html { redirect_to @room, notice: 'Room was successfully created.' }
+        format.html { redirect_to rooms_url, notice: 'Room was successfully created.' }
         format.json { render :show, status: :created, location: @room }
       else
         format.html { render :new }
@@ -35,13 +37,17 @@ class RoomsController < BaseController
       end
     end
   end
+  
+  def show 
+    @room=Room.find(params[:id])
+  end
 
   # PATCH/PUT /rooms/1
   # PATCH/PUT /rooms/1.json
   def update
     respond_to do |format|
       if @room.update(room_params)
-        format.html { redirect_to @room, notice: 'Room was successfully updated.' }
+        format.html { redirect_to rooms_url , notice: 'Room was successfully updated.' }
         format.json { render :show, status: :ok, location: @room }
       else
         format.html { render :edit }
@@ -68,6 +74,6 @@ class RoomsController < BaseController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def room_params
-      params.require(:room).permit(:nazwa, :rodzaj)
+      params.require(:room).permit(:nazwa, :rodzaj, :type_id)
     end
 end

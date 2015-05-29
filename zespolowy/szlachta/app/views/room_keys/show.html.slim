@@ -4,9 +4,9 @@ p
   strong Klucz:
   = @room_key.klucz
 p
-  strong Zapasowy:
-  = @room_key.zapasowy
+  strong Rodzaj:
+  = @room_key.zapasowy? ? "Zapasowy" : "Podstawowy"
 
-= link_to 'Edytuj', edit_room_key_path(@room_key) :class => 'btn btn-primary'
+= link_to 'Edytuj', edit_room_key_path(@room_key), :class => 'btn btn-primary'
 
-= link_to 'Cofnij', room_keys_path :class => 'btn btn-primary'
+= link_to 'Cofnij', room_keys_path, :class => 'btn btn-primary'

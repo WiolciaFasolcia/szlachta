@@ -38,11 +38,13 @@ end
 gem 'therubyracer'
 gem 'mysql2'
 gem 'slim-rails'
-
+gem 'email_validator'
 gem 'simple_form'
 gem 'devise'
 gem 'cancan'
 gem 'less-rails-bootstrap'
+
+gem 'time_diff'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

@@ -1,15 +1,15 @@
 = simple_form_for @room_key do |f|
   - if @room_key.errors.any?
     #error_explanation
-      h2 = "#{pluralize(@room_key.errors.count, "error")} prohibited this room_key from being saved:"
+      h2 = "#{pluralize(@room_key.errors.count, "error")} :"
       ul
         - @room_key.errors.full_messages.each do |message|
           li = message
 
   .form-inputs
-    = f.input :klucz, required: true, autofocus: true 
+    = f.input :klucz, as: :select, collection: Room.all.map(&:nazwa)
     = f.input :zapasowy, required: true, autofocus: true 
     
   =f.button :submit, "Potwierdź" , :class => 'btn btn-primary'
 
-  = link_to 'Cofnij', room_keys_path , :class => 'btn btn-primary'
+  = link_to 'Cofnij', :back, :class => 'btn btn-primary'

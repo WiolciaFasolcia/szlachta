@@ -11,13 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150511183606) do
+ActiveRecord::Schema.define(version: 20150528190713) do
+
+  create_table "employee_rooms", force: :cascade do |t|
+    t.integer  "employee_id", limit: 4
+    t.integer  "room_id",     limit: 4
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
 
   create_table "employees", force: :cascade do |t|
     t.string   "imie",       limit: 255
     t.string   "nazwisko",   limit: 255
     t.string   "tytul",      limit: 255
-    t.integer  "telefon",    limit: 4
+    t.string   "telefon",    limit: 9
     t.string   "email",      limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
@@ -28,11 +35,55 @@ ActiveRecord::Schema.define(version: 20150511183606) do
     t.boolean  "zapasowy",   limit: 1
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+    t.integer  "room_id",    limit: 4
   end
+
+  create_table "room_tests", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.integer  "typ_id",     limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "room_tests", ["typ_id"], name: "index_room_tests_on_typ_id", using: :btree
 
   create_table "rooms", force: :cascade do |t|
     t.string   "nazwa",      limit: 255
     t.string   "rodzaj",     limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "type_id",    limit: 4
+    t.string   "pokoj",      limit: 255
+    t.string   "string",     limit: 255
+    t.string   "dom",        limit: 255
+  end
+
+  add_index "rooms", ["dom"], name: "index_rooms_on_dom", using: :btree
+
+  create_table "take_keys", force: :cascade do |t|
+    t.string   "nazwa_sali",        limit: 255
+    t.string   "rodzaj_klucza",     limit: 255
+    t.string   "osoba_pobierajaca", limit: 255
+    t.datetime "godzina_pobrania"
+    t.datetime "godzina_oddania"
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+  end
+
+  create_table "test_views", force: :cascade do |t|
+    t.string   "Sala",            limit: 255
+    t.string   "Klucz",           limit: 255
+    t.string   "Pracownik",       limit: 255
+    t.boolean  "Pilot",           limit: 1
+    t.boolean  "Kabel",           limit: 1
+    t.datetime "Godzina_pobrania"
+    t.datetime "Godzina_oddania"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+  end
+
+  create_table "types", force: :cascade do |t|
+    t.string   "name",       limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end

@@ -1,0 +1,30 @@
+= form_for @test_view do |f|
+  - if @test_view.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@test_view.errors.count, "error")} prohibited this test_view from being saved:"
+      ul
+        - @test_view.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :Sala
+    = f.text_field :Sala, as: select, collection: Room.all
+  .field
+    = f.label :Klucz
+    = f.text_field :Klucz
+  .field
+    = f.label :Pracownik
+    = f.text_field :Pracownik
+  .field
+    = f.label :Pilot
+    = f.check_box :Pilot
+  .field
+    = f.label :Kabel
+    = f.check_box :Kabel
+  .field
+    = f.label :Godzin_pobrania
+    = f.datetime_select :Godzin_pobrania
+  .field
+    = f.label :Godzina_oddania
+    = f.datetime_select :Godzina_oddania
+  .actions = f.submit

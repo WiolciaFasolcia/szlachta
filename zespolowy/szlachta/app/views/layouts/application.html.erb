@@ -13,6 +13,9 @@
 <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
+<%= stylesheet_link_tag "application" %>
+<%= javascript_include_tag "application" %>
+<%= csrf_meta_tags %>
 </head>
 <body>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -39,6 +42,9 @@
 					<li ><a href="#"></a></li>
 					<li ><a href="#"><%= link_to "Lista użytkowników", users_path, :class => 'navbar-link' %></a></li>
 					<li ><a href="#"></a></li>
+					<li ><a href="#"><%= link_to "Pobrania", take_keys_path, :class => 'navbar-link' %></a></li>
+					<li ><a href="#"></a></li>
+					<li ><a href="#"><%= link_to "Typ sali", types_path, :class => 'navbar-link' %></a></li>
 				</ul>	
 
 
@@ -50,10 +56,22 @@
 				</ul>
 
  			<% end %>
+
+ 			<% elsif user_signed_in? %>
+
+ 				<ul class="nav navbar-nav">
+ 				<li ><a href="#"><%= link_to "Pobrania", take_keys_path, :class => 'navbar-link' %></a></li>
+					<li ><a href="#"></a></li>
+				</ul>
+ 				<ul class="nav navbar-nav navbar-right">
+ 				<li><a href="#"><%= link_to "Profil", show_profile_users_path, :class => 'navbar-link' %></a></li>
+				<li><a href="#"><%= link_to "Wyloguj", destroy_user_session_path, method: :delete, :class => 'navbar-link' %></a></li>
+				</ul>
  	
 			<% else %>
 				<ul class="nav navbar-nav navbar-right">
  				<li><a href="#"><%= link_to "Zaloguj", new_user_session_path, :class => 'navbar-link' %></a></li>
+
 				</ul>
 			<% end %>
 		</div>
@@ -61,7 +79,7 @@
 </nav>
 <div class="continer">
 	<div class="row">
-		<div class="col-md-9 col-md-offset-1"><%= yield %></div>
+		<div class="col-md-8 col-md-offset-2"><%= yield %></div>
 	</div>
 	
 </div>

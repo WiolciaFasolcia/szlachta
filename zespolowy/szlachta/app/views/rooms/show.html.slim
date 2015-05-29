@@ -8,7 +8,7 @@
  					= @room.nazwa
 				td
   					strong Rodzaj:
- 					= @room.rodzaj
+ 					= @room.type.name
 
 = link_to 'Edytuj', edit_room_path(@room), :class => 'btn btn-primary'
 

@@ -1,0 +1,27 @@
+h1 Lista pobrań
+= link_to 'Wydaj klucz', new_take_key_path , :class => 'btn btn-primary'
+table class="table table-striped"
+  thead
+    tr
+      th Nazwa sali
+      th Rodzaj klucza
+      th Osoba pobierajaca
+      th Godzina pobrania
+      th Godzina oddania
+      th
+      th
+      th
+
+  tbody
+    - @take_keys.each do |take_key|
+      tr
+        td = take_key.nazwa_sali
+        td = take_key.rodzaj_klucza
+        td = take_key.osoba_pobierajaca
+        td = take_key.godzina_pobrania
+        td = take_key.godzina_oddania
+        td = link_to 'Edytuj', edit_take_key_path(take_key) , :class => 'btn btn-primary'
+        td = link_to 'Usuń', take_key, :class => 'btn btn-primary' , data: {:confirm => 'Czy jesteś pewien, że chcesz usunąć pobranie?'}, :method => :delete
+
+br
+

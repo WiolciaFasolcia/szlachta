@@ -1,6 +1,6 @@
 class UsersController < BaseController
 
- load_and_authorize_resource
+authorize_resource
 
  def index
  @users = User.all
@@ -96,6 +96,6 @@ def change_users_password
  protected
 
  def user_params
- params.require(:user).permit( :email, :password, :password_confirmation, :commit)
+ params.require(:user).permit( :email, :password, :password_confirmation, :admin ,:commit)
  end
 end 

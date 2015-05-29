@@ -1,0 +1,16 @@
+= simple_form_for @room do |f|
+  - if @user.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@room.errors.count, "error")} :"
+      ul
+        - @room.errors.full_messages.each do |message|
+          li = message
+
+  .form-inputs
+    = f.input :email, required: true, autofocus: true 
+    = f.input :admin, required: true, autofocus: true 
+  
+  =f.button :submit, "Potwierdź" , :class => 'btn btn-primary'
+
+  = link_to 'Cofnij', :back , :class => 'btn btn-primary'
+

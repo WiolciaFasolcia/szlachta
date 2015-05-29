@@ -4,7 +4,8 @@ table class="table table-striped"
   thead
     tr
       th Klucz
-      th Zapasowy
+      th Rodzaj
+      th
       th
       th
       th
@@ -13,9 +14,10 @@ table class="table table-striped"
     - @room_keys.each do |room_key|
       tr
         td = room_key.klucz
-        td = room_key.zapasowy
+        td = room_key.zapasowy? ? "Zapasowy" : "Podstawowy"
         td = link_to 'Edytuj', edit_room_key_path(room_key), :class => 'btn btn-primary'
-        td = link_to 'Usuń', room_key , :class => 'btn btn-primary', data: {:confirm => 'Are you sure?'}, :method => :delete
+        td = link_to 'Usuń', room_key , :class => 'btn btn-primary', data: {:confirm => 'Jesteś pewien, że chcesz usunąć klucz?'}, :method => :delete
+        
 
 br
 

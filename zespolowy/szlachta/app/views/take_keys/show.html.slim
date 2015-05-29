@@ -1,0 +1,21 @@
+p#notice = notice
+
+p
+  strong Nazwa sali:
+  = @take_key.nazwa_sali
+p
+  strong Rodzaj klucza:
+  = @take_key.rodzaj_klucza
+p
+  strong Osoba pobierajaca:
+  = @take_key.osoba_pobierajaca
+p
+  strong Godzina pobrania:
+  = @take_key.godzina_pobrania
+p
+  strong Godzina oddania:
+  = @take_key.godzina_oddania
+
+= link_to 'Edytuj', edit_take_key_path(@take_key), :class => 'btn btn-primary'
+
+= link_to 'Cofnij', take_keys_path, :class => 'btn btn-primary'

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nazwa_sali: MyString
+  rodzaj_klucza: MyString
+  osoba_pobierajaca: MyString
+  godzina_pobrania: 2015-05-28 21:07:13
+  godzina_oddania: 2015-05-28 21:07:13
+
+two:
+  nazwa_sali: MyString
+  rodzaj_klucza: MyString
+  osoba_pobierajaca: MyString
+  godzina_pobrania: 2015-05-28 21:07:13
+  godzina_oddania: 2015-05-28 21:07:13

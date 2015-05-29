@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  resources :take_keys
+
+  resources :employee_rooms
+
+  resources :test_views
+
+  resources :types
+
   resources :room_keys
 
   resources :employees

@@ -1,0 +1,27 @@
+p#notice = notice
+
+p
+  strong Sala:
+  = @test_view.Sala
+p
+  strong Klucz:
+  = @test_view.Klucz
+p
+  strong Pracownik:
+  = @test_view.Pracownik
+p
+  strong Pilot:
+  = @test_view.Pilot
+p
+  strong Kabel:
+  = @test_view.Kabel
+p
+  strong Godzin pobrania:
+  = @test_view.Godzin_pobrania
+p
+  strong Godzina oddania:
+  = @test_view.Godzina_oddania
+
+= link_to 'Edit', edit_test_view_path(@test_view)
+'|
+= link_to 'Back', test_views_path

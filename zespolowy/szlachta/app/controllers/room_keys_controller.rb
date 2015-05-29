@@ -69,6 +69,6 @@ class RoomKeysController < BaseController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def room_key_params
-      params.require(:room_key).permit(:klucz, :zapasowy)
+      params.require(:room_key).permit(:klucz, :zapasowy, :room_id)
     end
 end

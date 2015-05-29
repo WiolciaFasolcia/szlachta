@@ -1,0 +1,33 @@
+h1 Listing test_views
+
+table
+  thead
+    tr
+      th Sala
+      th Klucz
+      th Pracownik
+      th Pilot
+      th Kabel
+      th Godzin pobrania
+      th Godzina oddania
+      th
+      th
+      th
+
+  tbody
+    - @test_views.each do |test_view|
+      tr
+        td = test_view.Sala
+        td = test_view.Klucz
+        td = test_view.Pracownik
+        td = test_view.Pilot
+        td = test_view.Kabel
+        td = test_view.Godzin_pobrania
+        td = test_view.Godzina_oddania
+        td = link_to 'Show', test_view
+        td = link_to 'Edit', edit_test_view_path(test_view)
+        td = link_to 'Destroy', test_view, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Test view', new_test_view_path

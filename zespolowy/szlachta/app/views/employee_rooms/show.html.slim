@@ -1,0 +1,12 @@
+p#notice = notice
+
+p
+  strong Employee:
+  = @employee_room.employee_id
+p
+  strong Room:
+  = @employee_room.room_id
+
+= link_to 'Edit', edit_employee_room_path(@employee_room)
+'|
+= link_to 'Back', employee_rooms_path

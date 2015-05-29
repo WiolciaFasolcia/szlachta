@@ -1,0 +1,23 @@
+h1 Listing employee_rooms
+
+table
+  thead
+    tr
+      th Employee
+      th Room
+      th
+      th
+      th
+
+  tbody
+    - @employee_rooms.each do |employee_room|
+      tr
+        td = employee_room.employee_id
+        td = employee_room.room_id
+        td = link_to 'Show', employee_room
+        td = link_to 'Edit', edit_employee_room_path(employee_room)
+        td = link_to 'Destroy', employee_room, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Employee room', new_employee_room_path

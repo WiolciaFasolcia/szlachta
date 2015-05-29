@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  Sala: MyString
+  Klucz: MyString
+  Pracownik: MyString
+  Pilot: false
+  Kabel: false
+  Godzin_pobrania: 2015-05-23 18:12:57
+  Godzina_oddania: 2015-05-23 18:12:57
+
+two:
+  Sala: MyString
+  Klucz: MyString
+  Pracownik: MyString
+  Pilot: false
+  Kabel: false
+  Godzin_pobrania: 2015-05-23 18:12:57
+  Godzina_oddania: 2015-05-23 18:12:57
