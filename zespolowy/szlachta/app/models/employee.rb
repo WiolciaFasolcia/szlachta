@@ -6,4 +6,7 @@ model.errors.add(attr, 'musi zaczynać sie z duzej litery') if value =~ /\A[a-z]
 validates_uniqueness_of :email, :telefon
 validates_length_of :telefon, :in => 9..9	
 validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }
+	
+	has_many :take_keys
+
 end

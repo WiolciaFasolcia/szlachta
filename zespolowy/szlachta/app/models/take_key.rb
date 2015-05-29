@@ -1,10 +1,12 @@
 class TakeKey < ActiveRecord::Base
 
 
-	validates_presence_of :nazwa_sali, :rodzaj_klucza, :osoba_pobierajaca
-	 # validate :validate_godzina_oddania
-	 #validate :validate_godzina_pobrania
-	
+	 #validates_presence_of :nazwa_sali, :rodzaj_klucza, :osoba_pobierajaca
+	#validate :validate_godzina_oddania
+	#validate :validate_godzina_pobrania
+	belongs_to :room
+ 	belongs_to :room_key
+ 	belongs_to :employee
  private
 
 
@@ -16,4 +18,5 @@ class TakeKey < ActiveRecord::Base
  def validate_godzina_pobrania
  errors.add(:godzina_pobrania, " klucza jest późniejszy niż czas zwrotu!") unless self.godzina_pobrania < self.godzina_oddania
  end
+
 end

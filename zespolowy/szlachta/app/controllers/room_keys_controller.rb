@@ -28,13 +28,18 @@ class RoomKeysController < BaseController
 
     respond_to do |format|
       if @room_key.save
-        format.html { redirect_to @room_key, notice: 'Room key was successfully created.' }
+        format.html { redirect_to room_keys_url, notice: 'Room key was successfully created.' }
         format.json { render :show, status: :created, location: @room_key }
       else
         format.html { render :new }
         format.json { render json: @room_key.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def show
+
+    @room_key = RoomKey.find(params[:id])
   end
 
   # PATCH/PUT /room_keys/1

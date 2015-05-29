@@ -10,5 +10,6 @@ end
 	
 	belongs_to :type
 	has_many :room_keys
+	has_many :take_keys
 
 end

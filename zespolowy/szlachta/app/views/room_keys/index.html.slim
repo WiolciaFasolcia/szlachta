@@ -5,15 +5,11 @@ table class="table table-striped"
     tr
       th Klucz
       th Rodzaj
-      th
-      th
-      th
-      th
 
   tbody
     - @room_keys.each do |room_key|
       tr
-        td = room_key.klucz
+        td = room_key.room.inspect
         td = room_key.zapasowy? ? "Zapasowy" : "Podstawowy"
         td = link_to 'Edytuj', edit_room_key_path(room_key), :class => 'btn btn-primary'
         td = link_to 'Usuń', room_key , :class => 'btn btn-primary', data: {:confirm => 'Jesteś pewien, że chcesz usunąć klucz?'}, :method => :delete

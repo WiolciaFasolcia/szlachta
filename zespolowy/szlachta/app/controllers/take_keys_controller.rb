@@ -1,4 +1,4 @@
-class TakeKeysController < BaseController
+class TakeKeysController < ApplicationController
   before_action :set_take_key, only: [:show, :edit, :update, :destroy]
 
   # GET /take_keys
@@ -28,7 +28,7 @@ class TakeKeysController < BaseController
 
     respond_to do |format|
       if @take_key.save
-        format.html { redirect_to @take_key, notice: 'Take key was successfully created.' }
+        format.html { redirect_to take_keys_url, notice: 'Take key was successfully created.' }
         format.json { render :show, status: :created, location: @take_key }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class TakeKeysController < BaseController
   def update
     respond_to do |format|
       if @take_key.update(take_key_params)
-        format.html { redirect_to @take_key, notice: 'Take key was successfully updated.' }
+        format.html { redirect_to take_keys_url, notice: 'Take key was successfully updated.' }
         format.json { render :show, status: :ok, location: @take_key }
       else
         format.html { render :edit }
@@ -69,6 +69,6 @@ class TakeKeysController < BaseController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def take_key_params
-      params.require(:take_key).permit(:nazwa_sali, :rodzaj_klucza, :osoba_pobierajaca, :godzina_pobrania, :godzina_oddania)
+      params.require(:take_key).permit(:nazwa_sali, :rodzaj_klucza, :osoba_pobierajaca, :godzina_pobrania, :godzina_oddania, :room_id, :room_key_id, :employee_id)
     end
 end

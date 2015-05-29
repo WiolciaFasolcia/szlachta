@@ -60,15 +60,28 @@ ActiveRecord::Schema.define(version: 20150528190713) do
 
   add_index "rooms", ["dom"], name: "index_rooms_on_dom", using: :btree
 
+  create_table "roomtypes", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
   create_table "take_keys", force: :cascade do |t|
     t.string   "nazwa_sali",        limit: 255
     t.string   "rodzaj_klucza",     limit: 255
     t.string   "osoba_pobierajaca", limit: 255
     t.datetime "godzina_pobrania"
     t.datetime "godzina_oddania"
+    t.integer  "room_id",           limit: 4
+    t.integer  "room_key_id",       limit: 4
+    t.integer  "employee_id",       limit: 4
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
   end
+
+  add_index "take_keys", ["employee_id"], name: "fk_rails_5c4dbf6ddd", using: :btree
+  add_index "take_keys", ["room_id"], name: "fk_rails_201884a14d", using: :btree
+  add_index "take_keys", ["room_key_id"], name: "fk_rails_d8551a6d72", using: :btree
 
   create_table "test_views", force: :cascade do |t|
     t.string   "Sala",            limit: 255
@@ -76,7 +89,7 @@ ActiveRecord::Schema.define(version: 20150528190713) do
     t.string   "Pracownik",       limit: 255
     t.boolean  "Pilot",           limit: 1
     t.boolean  "Kabel",           limit: 1
-    t.datetime "Godzina_pobrania"
+    t.datetime "Godzin_pobrania"
     t.datetime "Godzina_oddania"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
@@ -107,4 +120,7 @@ ActiveRecord::Schema.define(version: 20150528190713) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "take_keys", "employees"
+  add_foreign_key "take_keys", "room_keys"
+  add_foreign_key "take_keys", "rooms"
 end

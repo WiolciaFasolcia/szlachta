@@ -56,7 +56,7 @@ end
   #  end
   
 
-    root 'home#index'
+    root 'take_keys#index'
   # Example resource route with options:
   #   resources :products do
   #     member do

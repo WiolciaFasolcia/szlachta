@@ -1,4 +1,6 @@
 h1 Lista pobrań
+
+-if can? :create, :take_key
 = link_to 'Wydaj klucz', new_take_key_path , :class => 'btn btn-primary'
 table class="table table-striped"
   thead
@@ -15,9 +17,9 @@ table class="table table-striped"
   tbody
     - @take_keys.each do |take_key|
       tr
-        td = take_key.nazwa_sali
-        td = take_key.rodzaj_klucza
-        td = take_key.osoba_pobierajaca
+        td = take_key.room.nazwa
+        td = take_key.room_key.inspect
+        td = take_key.employee.inspect
         td = take_key.godzina_pobrania
         td = take_key.godzina_oddania
         td = link_to 'Edytuj', edit_take_key_path(take_key) , :class => 'btn btn-primary'

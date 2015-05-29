@@ -7,9 +7,9 @@
           li = message
 
   .form-inputs
-    = f.input :klucz, as: :select, collection: Room.all.map(&:nazwa)
+    = f.input :room_id, as: :select, collection: Room.all
     = f.input :zapasowy, required: true, autofocus: true 
-    
+
   =f.button :submit, "Potwierdź" , :class => 'btn btn-primary'
 
   = link_to 'Cofnij', :back, :class => 'btn btn-primary'
