@@ -1,6 +1,6 @@
 h1 Lista pracowników
-
-= link_to 'Dodaj pracownika', new_employee_path , :class => 'btn btn-primary'
+-if can? :create, :employee
+    = link_to 'Dodaj pracownika', new_employee_path , :class => 'btn btn-primary'
 
 table class="table table-striped"
   thead
@@ -22,8 +22,10 @@ table class="table table-striped"
         td = employee.tytul
         td = employee.telefon
         td = employee.email
-        td = link_to 'Edytuj', edit_employee_path(employee) , :class => 'btn btn-primary'
-        td = link_to 'Usuń', employee , :class => 'btn btn-primary', data: {:confirm => 'Jesteś pewien, że chcesz usunąć pracownika?'}, :method => :delete
+        -if can? :create, :employee 
+              td = link_to 'Edytuj', edit_employee_path(employee) , :class => 'btn btn-primary'
+        -if can? :create, :employee 
+              td = link_to 'Usuń', employee , :class => 'btn btn-primary', data: {:confirm => 'Jesteś pewien, że chcesz usunąć pracownika?'}, :method => :delete
 
 br
 

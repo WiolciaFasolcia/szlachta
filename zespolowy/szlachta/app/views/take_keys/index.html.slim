@@ -1,7 +1,8 @@
 h1 Lista pobrań
 
--if can? :create, :take_key
-= link_to 'Wydaj klucz', new_take_key_path , :class => 'btn btn-primary'
+-if user_signed_in?
+    = link_to 'Wydaj klucz', new_take_key_path , :class => 'btn btn-primary'
+end
 table class="table table-striped"
   thead
     tr
@@ -22,8 +23,10 @@ table class="table table-striped"
         td = take_key.employee.inspect
         td = take_key.godzina_pobrania
         td = take_key.godzina_oddania
-        td = link_to 'Edytuj', edit_take_key_path(take_key) , :class => 'btn btn-primary'
-        td = link_to 'Usuń', take_key, :class => 'btn btn-primary' , data: {:confirm => 'Czy jesteś pewien, że chcesz usunąć pobranie?'}, :method => :delete
+        -if user_signed_in?
+            td = link_to 'Edytuj', edit_take_key_path(take_key) , :class => 'btn btn-primary'
+        -if user_signed_in?
+            td = link_to 'Usuń', take_key, :class => 'btn btn-primary' , data: {:confirm => 'Czy jesteś pewien, że chcesz usunąć pobranie?'}, :method => :delete
 
 br
 

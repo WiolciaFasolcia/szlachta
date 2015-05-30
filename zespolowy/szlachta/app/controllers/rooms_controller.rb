@@ -25,6 +25,7 @@ class RoomsController < BaseController
   # POST /rooms
   # POST /rooms.json
   def create
+    if can? :cerate, :room
     @room = Room.new(room_params)
 
     respond_to do |format|
@@ -36,6 +37,7 @@ class RoomsController < BaseController
         format.json { render json: @room.errors, status: :unprocessable_entity }
       end
     end
+    end
   end
   
   def show 
@@ -45,6 +47,7 @@ class RoomsController < BaseController
   # PATCH/PUT /rooms/1
   # PATCH/PUT /rooms/1.json
   def update
+    if can? :update, :room
     respond_to do |format|
       if @room.update(room_params)
         format.html { redirect_to rooms_url , notice: 'Room was successfully updated.' }
@@ -53,6 +56,7 @@ class RoomsController < BaseController
         format.html { render :edit }
         format.json { render json: @room.errors, status: :unprocessable_entity }
       end
+    end
     end
   end
 

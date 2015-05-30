@@ -1,5 +1,6 @@
 h1 Lista sal
-= link_to 'Dodaj salę', new_room_path , :class => 'btn btn-primary'
+-if can? :create, :room
+  = link_to 'Dodaj salę', new_room_path , :class => 'btn btn-primary' 
 table class="table table-striped"
   thead
     tr
@@ -14,8 +15,10 @@ table class="table table-striped"
       tr
         td = room.nazwa
         td = room.type.name
-        td = link_to 'Edytuj', edit_room_path(room) , :class => 'btn btn-primary'
-        td = link_to 'Usuń', room, :class => 'btn btn-primary' , data: {:confirm => 'Jesteś pewien, że chcesz usunąć salę?'}, :method => :delete
+        -if can? :create, :room 
+             td = link_to 'Edytuj', edit_room_path(room) , :class => 'btn btn-primary' 
+        -if can? :create, :room 
+             td = link_to 'Usuń', room, :class => 'btn btn-primary' , data: {:confirm => 'Jesteś pewien, że chcesz usunąć salę?'}, :method => :delete
 
 br
 

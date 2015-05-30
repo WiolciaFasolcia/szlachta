@@ -1,5 +1,6 @@
 h1 Lista kluczy
-= link_to 'Dodaj klucz', new_room_key_path, :class => 'btn btn-primary'
+-if can? :create, :room_key
+      = link_to 'Dodaj klucz', new_room_key_path, :class => 'btn btn-primary'
 table class="table table-striped"
   thead
     tr
@@ -11,8 +12,10 @@ table class="table table-striped"
       tr
         td = room_key.room.inspect
         td = room_key.zapasowy? ? "Zapasowy" : "Podstawowy"
-        td = link_to 'Edytuj', edit_room_key_path(room_key), :class => 'btn btn-primary'
-        td = link_to 'Usuń', room_key , :class => 'btn btn-primary', data: {:confirm => 'Jesteś pewien, że chcesz usunąć klucz?'}, :method => :delete
+        -if can? :create, :room_key
+            td = link_to 'Edytuj', edit_room_key_path(room_key), :class => 'btn btn-primary'
+        -if can? :create, :rom_key
+            td = link_to 'Usuń', room_key , :class => 'btn btn-primary', data: {:confirm => 'Jesteś pewien, że chcesz usunąć klucz?'}, :method => :delete
         
 
 br

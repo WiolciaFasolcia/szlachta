@@ -1,9 +1,10 @@
 h1 Lista typ sal
-= link_to 'New Type', new_type_path, :class => 'btn btn-primary'
+-if can? :create, :type 
+    = link_to 'Nowy typ', new_type_path, :class => 'btn btn-primary'
 table class="table table-striped"
   thead
     tr
-      th Name
+      th Typ sali
       th
       th
       th
@@ -12,8 +13,10 @@ table class="table table-striped"
     - @types.each do |type|
       tr
         td = type.name
-        td = link_to 'Edytuj', edit_type_path(type), :class => 'btn btn-primary'
-        td = link_to 'Destroy', type, data: {:confirm => 'Jesteś pewien, że chcesz usunąć typ sali?'}, :method => :delete, :class => 'btn btn-primary'
+        -if can? :create, :type 
+           td = link_to 'Edytuj', edit_type_path(type), :class => 'btn btn-primary'
+        -if can? :create, :type 
+            td = link_to 'Usuń', type, data: {:confirm => 'Jesteś pewien, że chcesz usunąć typ sali?'}, :method => :delete, :class => 'btn btn-primary'
 
 
 
