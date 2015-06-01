@@ -4,7 +4,7 @@ class TestViewsController < ApplicationController
   # GET /test_views
   # GET /test_views.json
   def index
-    @test_views = TestView.all
+    @test_views = TestView.all.paginate(:page => params[:page], :per_page => 6)
   end
 
   # GET /test_views/1

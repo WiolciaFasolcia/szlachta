@@ -17,7 +17,8 @@ table class="table table-striped"
         -if can? :create, :rom_key
             td = link_to 'Usuń', room_key , :class => 'btn btn-primary', data: {:confirm => 'Jesteś pewien, że chcesz usunąć klucz?'}, :method => :delete
         
-
+center
+          = will_paginate @tasks_not_done, renderer: BootstrapPagination::Rails
 br
 
 

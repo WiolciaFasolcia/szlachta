@@ -10,7 +10,8 @@
     = f.input :email, required: true, autofocus: true 
     = f.input :admin, required: true, autofocus: true 
   
-  =f.button :submit, "Potwierdź" , :class => 'btn btn-primary'
+  tr
+  td =f.button :submit, "Potwierdź" , :class => 'btn btn-primary'
 
-  = link_to 'Cofnij', :back , :class => 'btn btn-primary'
+  td = link_to 'Cofnij', :back , :class => 'btn btn-primary'
 

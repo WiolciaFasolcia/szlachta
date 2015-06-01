@@ -9,8 +9,9 @@
   .form-inputs
     = f.input :nazwa, required: true, autofocus: true 
     = f.input :type_id, as: :select, collection: Type.all
-  
-  =f.button :submit, "Potwierdź" , :class => 'btn btn-primary'
+  tr
 
-  = link_to 'Cofnij', :back , :class => 'btn btn-primary'
+  td =f.button :submit, "Potwierdź" , :class => 'btn btn-primary'
+
+  td = link_to 'Cofnij', :back , :class => 'btn btn-primary'
 

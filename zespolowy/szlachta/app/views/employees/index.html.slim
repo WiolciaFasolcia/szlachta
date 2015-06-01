@@ -27,6 +27,9 @@ table class="table table-striped"
         -if can? :create, :employee 
               td = link_to 'Usuń', employee , :class => 'btn btn-primary', data: {:confirm => 'Jesteś pewien, że chcesz usunąć pracownika?'}, :method => :delete
 
+
+center
+          = will_paginate @tasks_not_done, renderer: BootstrapPagination::Rails
 br
 
 

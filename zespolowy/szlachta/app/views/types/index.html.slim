@@ -18,7 +18,8 @@ table class="table table-striped"
         -if can? :create, :type 
             td = link_to 'Usuń', type, data: {:confirm => 'Jesteś pewien, że chcesz usunąć typ sali?'}, :method => :delete, :class => 'btn btn-primary'
 
-
+center
+          = will_paginate @tasks_not_done, renderer: BootstrapPagination::Rails
 
 br
 

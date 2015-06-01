@@ -47,26 +47,12 @@
 					<li ><a href="#"><%= link_to "Typ sali", types_path, :class => 'navbar-link' %></a></li>
 				</ul>	
 
-
-
-
  				<ul class="nav navbar-nav navbar-right">
  				<li><a href="#"><%= link_to "Profil", show_profile_users_path, :class => 'navbar-link' %></a></li>
 				<li><a href="#"><%= link_to "Wyloguj", destroy_user_session_path, method: :delete, :class => 'navbar-link' %></a></li>
 				</ul>
 
  			<% end %>
-
- 			<% elsif user_signed_in? %>
-
- 				<ul class="nav navbar-nav">
- 				<li ><a href="#"><%= link_to "Pobrania", take_keys_path, :class => 'navbar-link' %></a></li>
-					<li ><a href="#"></a></li>
-				</ul>
- 				<ul class="nav navbar-nav navbar-right">
- 				<li><a href="#"><%= link_to "Profil", show_profile_users_path, :class => 'navbar-link' %></a></li>
-				<li><a href="#"><%= link_to "Wyloguj", destroy_user_session_path, method: :delete, :class => 'navbar-link' %></a></li>
-				</ul>
  	
 			<% else %>
 				<ul class="nav navbar-nav navbar-right">

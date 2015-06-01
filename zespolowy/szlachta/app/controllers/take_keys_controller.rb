@@ -4,7 +4,7 @@ class TakeKeysController < ApplicationController
   # GET /take_keys
   # GET /take_keys.json
   def index
-    @take_keys = TakeKey.all
+    @take_keys = TakeKey.all.paginate(:page => params[:page], :per_page => 6)
   end
 
   # GET /take_keys/1

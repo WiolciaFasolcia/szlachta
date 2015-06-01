@@ -5,7 +5,7 @@ class RoomsController < BaseController
   # GET /rooms.json
   def index
     
-    @rooms = Room.all
+    @rooms = Room.paginate(:page => params[:page], :per_page => 6)
     
   end
   # GET /rooms/1
@@ -80,4 +80,6 @@ class RoomsController < BaseController
     def room_params
       params.require(:room).permit(:nazwa, :rodzaj, :type_id)
     end
+
+
 end

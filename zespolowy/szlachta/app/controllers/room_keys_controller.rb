@@ -4,7 +4,7 @@ class RoomKeysController < BaseController
   # GET /room_keys
   # GET /room_keys.json
   def index
-    @room_keys = RoomKey.all
+    @room_keys = RoomKey.paginate(:page => params[:page], :per_page => 6)
   end
 
   # GET /room_keys/1

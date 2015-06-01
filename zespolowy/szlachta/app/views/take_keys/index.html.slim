@@ -18,15 +18,16 @@ table class="table table-striped"
   tbody
     - @take_keys.each do |take_key|
       tr
-        td = take_key.room.nazwa
+        td = take_key.room.inspect
         td = take_key.room_key.inspect
         td = take_key.employee.inspect
         td = take_key.godzina_pobrania
-        td = take_key.godzina_oddania
+        td = take_key.godzina_oddania 
         -if user_signed_in?
             td = link_to 'Edytuj', edit_take_key_path(take_key) , :class => 'btn btn-primary'
         -if user_signed_in?
             td = link_to 'Usuń', take_key, :class => 'btn btn-primary' , data: {:confirm => 'Czy jesteś pewien, że chcesz usunąć pobranie?'}, :method => :delete
-
+center
+          = will_paginate @take_key_godzina_oddania_is_nil, renderer: BootstrapPagination::Rails
 br
 

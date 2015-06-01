@@ -43,8 +43,9 @@ gem 'simple_form'
 gem 'devise'
 gem 'cancan'
 gem 'less-rails-bootstrap'
-
+gem 'bootstrap-datepicker-rails', :require => 'bootstrap-datepicker-rails', :git => 'git://github.com/Nerian/bootstrap-datepicker-rails.git'
 gem 'time_diff'
+gem 'will_paginate-bootstrap'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

@@ -17,12 +17,13 @@
      <tr>
        <td><%= user.email %></td>
        <td><%= user.admin? %></td>
-      <td><%if can? :edit, :user%><%= link_to 'Edycja', edit_user_path(user), :class => 'btn btn-primary' %><% end %></td>
+      <td><%if can? :edit, :user%><%= link_to 'Edytuj', edit_user_path(user), :class => 'btn btn-primary' %><% end %></td>
         <td><%if can? :edit, :user%><%= link_to 'Usuń', user_path(user), :class => 'btn btn-primary', method: :delete, data: { confirm: 'Czy jestes pewien?' } %><% end %></td>
      </tr>
    <% end %>
  </tbody>
 </table>
-
-
+<center>
+          <%= will_paginate @tasks_not_done, renderer: BootstrapPagination::Rails %>
+</center>
 <br>

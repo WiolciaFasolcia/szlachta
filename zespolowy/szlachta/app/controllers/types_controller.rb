@@ -4,7 +4,7 @@ class TypesController < BaseController
   # GET /types
   # GET /types.json
   def index
-    @types = Type.all
+    @types = Type.all.paginate(:page => params[:page], :per_page => 6)
   end
 
   # GET /types/1

@@ -20,6 +20,8 @@ table class="table table-striped"
         -if can? :create, :room 
              td = link_to 'Usuń', room, :class => 'btn btn-primary' , data: {:confirm => 'Jesteś pewien, że chcesz usunąć salę?'}, :method => :delete
 
-br
+center
+          = will_paginate @tasks_not_done, renderer: BootstrapPagination::Rails
+
 
 
