@@ -18,9 +18,9 @@ table class="table table-striped"
   tbody
     - @take_keys.each do |take_key|
       tr
-        td = take_key.room.inspect
-        td = take_key.room_key.inspect
-        td = take_key.employee.inspect
+        td = take_key.room.nazwa 
+        td = take_key.room_key.zapasowy ? "zapasowy" : "podstawowy" rescue "/"
+        td = take_key.employee.name_surname rescue "/"
         td = take_key.godzina_pobrania
         td = take_key.godzina_oddania 
         -if user_signed_in?

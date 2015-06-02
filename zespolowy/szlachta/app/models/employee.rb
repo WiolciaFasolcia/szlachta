@@ -9,4 +9,11 @@ validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i,
 	
 	has_many :take_keys
 
+
+
+def name_surname
+	"#{imie} #{nazwisko}"
+end
+
+
 end
