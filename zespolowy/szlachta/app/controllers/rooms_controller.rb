@@ -5,7 +5,7 @@ class RoomsController < BaseController
   # GET /rooms.json
   def index
     
-    @rooms = Room.paginate(:page => params[:page], :per_page => 6)
+    @rooms = Room.order("rooms.nazwa").paginate(:page => params[:page], :per_page => 6)
     
   end
   # GET /rooms/1

@@ -19,7 +19,7 @@ table class="table table-striped"
     - @take_keys.each do |take_key|
       tr
         td = take_key.room.nazwa 
-        td = take_key.room_key.zapasowy ? "zapasowy" : "podstawowy" rescue "/"
+        td = take_key.room_key.zapasowy? ? "zapasowy" : "podstawowy"
         td = take_key.employee.name_surname rescue "/"
         td = take_key.godzina_pobrania
         td = take_key.godzina_oddania 

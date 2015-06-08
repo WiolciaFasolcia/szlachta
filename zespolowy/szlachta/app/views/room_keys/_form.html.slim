@@ -7,7 +7,7 @@
           li = message
 
   .form-inputs
-    = f.input :room_id, as: :select, collection: Room.all
+    = f.association :room, label_method: :nazwa, value_method: :id, include_blank: false 
     = f.input :zapasowy, required: true, autofocus: true 
   tr
     td =f.button :submit, "Potwierdź" , :class => 'btn btn-primary'

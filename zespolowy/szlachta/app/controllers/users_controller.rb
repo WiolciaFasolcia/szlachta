@@ -22,15 +22,14 @@ end
  end
 
  def edit
- @user = User.find(params[:id])
-   	unless current_user.id == @user.id
- 		if current_user.admin? and @user.admin? then
- 			redirect_to root_path
+    @user = User.find(params[:id])
+   	if !current_user.admin? || current_user != @user
+ 			redirect_to root_path && return
  		end
- 	end
  end
 
   def update
+    @user = User.find(params[:id])
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
@@ -42,6 +41,9 @@ end
     end
   end
 
+def show 
+  @user = User.find(params[:id])
+end 
  def destroy
  @user = User.find(params[:id])
  if @user.destroy

@@ -10,7 +10,7 @@ table class="table table-striped"
   tbody
     - @room_keys.each do |room_key|
       tr
-        td = room_key.room.inspect
+        td = room_key.room.nazwa
         td = room_key.zapasowy? ? "Zapasowy" : "Podstawowy"
         -if can? :create, :room_key
             td = link_to 'Edytuj', edit_room_key_path(room_key), :class => 'btn btn-primary'

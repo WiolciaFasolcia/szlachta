@@ -8,15 +8,15 @@
 
 
   .form-inputs
-    = f.input :nazwa_sali, as: :select, collection: Room.all.map(&:nazwa)
-    = f.input :rodzaj_klucza, as: :select, collection: Room.all.map(&:nazwa)
-    = f.input :osoba_pobierajaca, as: :select, collection: Employee.pluck(:nazwisko, :imie)
+    = f.association :room, label_method: :nazwa, value_method: :id, include_blank: false 
+    = f.association :room_key, label_method: :id, value_method: :id, include_blank: false 
+    = f.association :employee, label_method: :name_surname, value_method: :id, include_blank: false 
     = f.input :godzina_pobrania, required: true
     = f.input :godzina_oddania
 
 
 
-    
-  =f.button :submit, "Potwierdź" , :class => 'btn btn-primary'
+ tr   
+  td =f.button :submit, "Potwierdź" , :class => 'btn btn-primary'
 
-  = link_to 'Cofnij', :back, :class => 'btn btn-primary'
+  td = link_to 'Cofnij', :back, :class => 'btn btn-primary'
